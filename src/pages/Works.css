@@ -1,0 +1,191 @@
+.motion-page {
+  direction: rtl;
+  text-align: center;
+  background-color: #dddddd;
+  font-family: "RH-Zak", sans-serif;
+}
+
+.motion-top-image-container {
+  position: relative;
+  width: 100%;
+  height: 50vh; /* Adjust as needed */
+  overflow: hidden;
+}
+
+.motion-top-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* always fills the container */
+  object-position: center; /* keep image centered */
+}
+
+
+
+
+.motion-top-image-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 4rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* Center header with full-width lines */
+.motion-header-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 80px 0 60px;
+  position: relative;
+}
+
+/* Lines on both sides of the header */
+.motion-line {
+  flex: 1;
+  height: 8px;
+  background-color: #555555; /* dark grey */
+}
+
+.right-line {
+  margin-left: 10px;
+}
+
+.left-line {
+  margin-right: 10px;
+}
+
+.motion-header-line h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #0aa3bf; /* New blue color */
+  white-space: nowrap;
+  padding: 0 15px;
+  background-color: #dddddd; /* matches background to hide overlap */
+}
+
+/* Section that holds the cards and gives extra blank space */
+.motion-section {
+  background-color: #dddddd; /* same as page background */
+  min-height: 1200px; /* ✅ reserve space for future cards */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 30px;
+}
+
+/* Cards container */
+.motion-card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px;
+  max-width: 1000px;
+  width: 100%;
+  padding: 0 100px;
+}
+
+/* Individual card */
+.motion-card {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 270px;
+  height: 190px; 
+  padding: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.motion-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.35);
+}
+
+
+
+/* Card image */
+.motion-card-image {
+  width: 90%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Back button */
+.motion-back-button-container {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.motion-back-button {
+  padding: 10px 20px;
+  background-color: #555555;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background 0.3s ease;
+}
+
+.motion-back-button:hover {
+  background-color: #313131;
+}
+
+.motion-bline {
+  width: 100%;
+  height: 6px;
+  background-color: #555555;
+}
+
+@media (max-width: 1024px) {
+  .motion-top-image-container { height: min(50vh, 260px); }
+
+  .motion-header-line { margin: 40px 0 28px; gap: 14px; }
+  .motion-line { height: 5px; }
+
+  .motion-card-container {
+    grid-template-columns: repeat(2, minmax(220px, 1fr)); /* 2 per row */
+    gap: 18px;
+    max-width: 900px;
+  }
+  .motion-header-line h1 { font-size: 2rem; }
+
+  .motion-card { padding: 16px; max-width: 360px; }
+}
+
+/* ====== Phones (≤768px): keep 2 columns, shrink text ====== */
+@media (max-width: 768px) {
+
+  .motion-top-image-container { height: min(45vh, 200px); }
+
+  .motion-top-image-text { font-size: 2.6rem}
+
+  .motion-header-line { margin: 32px 0 22px; }
+  .motion-header-line h1 { font-size: 1.3rem }
+
+  .motion-card-container {
+    grid-template-columns: 1fr;   /* 1 per row */
+    gap: 14px;
+    max-width: 420px;
+    justify-content: center;
+  }
+
+  .motion-card { aspect-ratio: 4 / 3; padding: 14px; }
+}
+
+/* ====== Small phones (≤480px): 1 column ====== */
+@media (max-width: 480px) {
+  .motion-top-image-container { height: min(40vh, 160px); }
+  .motion-top-image-text { font-size: 1.9rem; }
+
+  .motion-card { max-width: 220px; padding: 8px; justify-content: center;}
+}
