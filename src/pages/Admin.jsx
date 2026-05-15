@@ -7,10 +7,12 @@ const Admin = () => {
   const [category, setCategory] = useState("digital");
   const [loading, setLoading] = useState(false);
 
+  const API = "https://ebdaa-backend-lww2.onrender.com";
+
   // 🔄 Fetch images
   const fetchImages = async () => {
     try {
-      const res = await fetch(`https://ebdaa-backend.onrender.com/images/${category}`);
+      const res = await fetch(`${API}/images/${category}`);
       const data = await res.json();
       setImages(data);
     } catch (err) {
@@ -37,7 +39,7 @@ const Admin = () => {
     try {
       setLoading(true);
 
-      const res = await fetch("https://ebdaa-backend.onrender.com/upload", {
+      const res = await fetch(`${API}/upload`, {
         method: "POST",
         body: formData
       });
@@ -46,7 +48,7 @@ const Admin = () => {
 
       alert("Uploaded successfully ✅");
       setFile(null);
-      fetchImages(); // 🔥 refresh list
+      fetchImages();
     } catch (err) {
       console.error(err);
       alert("Upload failed ❌");
@@ -61,11 +63,11 @@ const Admin = () => {
     if (!confirmDelete) return;
 
     try {
-      await fetch(`https://ebdaa-backend.onrender.com/delete/${id}`, {
+      await fetch(`${API}/delete/${id}`, {
         method: "DELETE"
       });
 
-      fetchImages(); // 🔥 refresh list
+      fetchImages();
     } catch (err) {
       console.error(err);
       alert("Delete failed");
@@ -97,7 +99,6 @@ const Admin = () => {
           {loading ? "Uploading..." : "Upload Image"}
         </button>
 
-        {/* 🔥 Image List */}
         <div className="admin-images">
           <h3>Existing Images</h3>
 
