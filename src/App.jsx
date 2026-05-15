@@ -37,6 +37,10 @@ function parseHash() {
 }
 
 export default function App() {
+  useEffect(() => {
+  fetch("https://ebdaa-backend-lww2.onrender.com/ping")
+    .catch(() => {});
+  }, []);
   const [{ page, anchor }, setNav] = useState(parseHash());
 
   // use this instead of setPage
