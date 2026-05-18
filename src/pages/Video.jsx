@@ -8,7 +8,7 @@ const Video = ({ setPage }) => {
 
   // 🔄 Fetch video images
   useEffect(() => {
-    fetch("https://ebdaa-backend.onrender.com/images/video")
+    fetch("https://ebdaa-backend-lww2.onrender.com/images/video")
       .then((res) => res.json())
       .then((data) => setImages(data))
       .catch((err) => console.error(err));

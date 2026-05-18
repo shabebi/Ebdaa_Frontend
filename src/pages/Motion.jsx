@@ -8,7 +8,7 @@ const Motion = ({ setPage }) => {
 
   // 🔄 Fetch motion images
   useEffect(() => {
-    fetch("https://ebdaa-backend.onrender.com/images/motion")
+    fetch("https://ebdaa-backend-lww2.onrender.com/images/motion")
       .then((res) => res.json())
       .then((data) => setImages(data))
       .catch((err) => console.error(err));

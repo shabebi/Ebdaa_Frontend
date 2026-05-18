@@ -8,7 +8,7 @@ const Digital = ({ setPage }) => {
 
   // 🔄 Fetch images from backend
   useEffect(() => {
-    fetch("https://ebdaa-backend.onrender.com/images/digital")
+    fetch("https://ebdaa-backend-lww2.onrender.com/images/digital")
       .then((res) => res.json())
       .then((data) => setImages(data))
       .catch((err) => console.error(err));
